@@ -32,9 +32,21 @@ before `npm start` does nothing; it has to be set before `npm run build`.
 
 `/app` and `/connect` still appear in the build's route manifest as prerendered
 entries even with the flag on. That is expected: the gate is a `notFound()` call
-inside a client component, so the route exists and answers **HTTP 404** at
-request time. Confirmed in a browser, status line and all — it is a real 404,
-not a soft one, and it renders `app/not-found.tsx` rather than Next's stock page.
+inside a client component, so the route exists and the visitor lands on
+`app/not-found.tsx` rather than Next's stock page.
+
+**It is a soft 404, not a real one, and this file used to claim otherwise.**
+Measured against the deployed site on 2026-08-21: `GET /connect` and `GET /app`
+return **HTTP 200**. `output: "export"` writes `out/connect.html` and
+`out/app.html` as real files, and static hosting cannot answer 404 for a file
+that exists — `notFound()` runs in the browser, after the 200 has been sent.
+The earlier claim was true of `next start`, which served these through the Next
+server, and stopped being true when the build moved to a static export.
+
+What still holds is the part that matters for crawlers: the served page carries
+`<meta name="robots" content="noindex">`, so it will not be indexed. That plus
+`public/robots.txt`'s `Disallow` is what keeps the live tree out of search
+results; the status code is not doing that work and never was on this build.
 
 ## Vercel project
 

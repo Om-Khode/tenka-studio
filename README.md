@@ -72,8 +72,10 @@ the running task keeps its per-step stack badges:
 
 A page served over HTTPS cannot fetch a visitor's `http://127.0.0.1` daemon —
 mixed content, plus Private Network Access. So the deployed build walls the live
-tree off rather than shipping a broken one: `/app/*` and `/connect` answer a real
-HTTP 404.
+tree off rather than shipping a broken one: `/app/*` and `/connect` render the
+404 page and carry `<meta name="robots" content="noindex">`. (The HTTP status is
+200 — a static export writes those routes as real files, so `notFound()` runs in
+the browser rather than at the edge. `docs/deploy.md` has the detail.)
 
 That switch is `NEXT_PUBLIC_DEMO_ONLY=1`, read at **build** time and owned by
 `services/deployment.ts`. Unset it and you get the full app. See

@@ -45,7 +45,7 @@ describe("public/sitemap.xml", () => {
     expect(sitemapPaths()).toEqual(expected);
   });
 
-  it("never lists a route the public build answers 404 for", () => {
+  it("never lists a route the public build walls off", () => {
     for (const path of sitemapPaths()) {
       expect(path.startsWith("/app")).toBe(false);
       expect(path).not.toBe("/connect");
