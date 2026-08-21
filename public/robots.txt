@@ -1,12 +1,14 @@
 # TENKA Studio -- https://github.com/Om-Khode/tenka-studio
 #
 # The live tree is disallowed rather than merely absent. On the public build
-# /app/* and /connect answer a real 404, so a crawler that finds them logs
-# errors for pages working exactly as intended, and /pair is the pairing entry
+# /app/* and /connect serve the 404 page at HTTP 200 -- a static export writes
+# them as real files, so notFound() runs in the browser and the status line is
+# already sent. They carry <meta name="robots" content="noindex">, and this
+# Disallow is the second half of the same intent. /pair is the pairing entry
 # point, which has no business in an index even where it does resolve.
 #
-# This is not a security control. The 404 and the daemon's own listener policy
-# are; this is just an honest description of what is meant to be public.
+# This is not a security control. The daemon's own listener policy is; this is
+# just an honest description of what is meant to be public.
 
 User-agent: *
 Allow: /
