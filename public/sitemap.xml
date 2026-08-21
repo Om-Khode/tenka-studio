@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Only the routes that answer on the public build: the landing page and the demo
+  tree. /app/*, /connect and /pair are deliberately absent, because a sitemap
+  that lists a URL returning 404 is a sitemap that reports itself broken to
+  every crawler that reads it.
+
+  Static rather than generated: Next compiles app/sitemap.ts into a route
+  handler, and this project's public build forbids those (docs/deploy.md).
+  tests/sitemap.test.ts pins this list against the demo pages that exist on
+  disk, so adding a page without adding it here is a failing test rather than
+  silent drift.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://tenka-studio.vercel.app/</loc><priority>1.0</priority></url>
+  <url><loc>https://tenka-studio.vercel.app/demo</loc><priority>0.8</priority></url>
+  <url><loc>https://tenka-studio.vercel.app/demo/chat</loc><priority>0.8</priority></url>
+  <url><loc>https://tenka-studio.vercel.app/demo/commands</loc><priority>0.8</priority></url>
+  <url><loc>https://tenka-studio.vercel.app/demo/files</loc><priority>0.8</priority></url>
+  <url><loc>https://tenka-studio.vercel.app/demo/memory</loc><priority>0.8</priority></url>
+  <url><loc>https://tenka-studio.vercel.app/demo/settings</loc><priority>0.8</priority></url>
+</urlset>
