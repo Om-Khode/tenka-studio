@@ -3,6 +3,9 @@ import { Button } from "@/components/ui/button";
 import { isPublicDemoBuild } from "@/services/deployment";
 
 const TENKA_REPO = "https://github.com/Om-Khode/TENKA";
+// The marketing site. Studio is a client, so someone who lands on the demo
+// first has no route to what the assistant actually is without this.
+const TENKA_SITE = "https://tenka-web.pages.dev";
 
 export default function LandingPage() {
   // A public deployment 404s /app and /connect, because a page served over
@@ -56,6 +59,14 @@ export default function LandingPage() {
           </Link>
         )}
       </div>
+      <a
+        href={TENKA_SITE}
+        target="_blank"
+        rel="noreferrer"
+        className="mt-2 font-mono text-xs text-bone-ghost underline-offset-4 transition-colors hover:text-bone-dim hover:underline"
+      >
+        What she actually does
+      </a>
     </main>
   );
 }
