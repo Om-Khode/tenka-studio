@@ -1,13 +1,37 @@
-# TENKA Studio
+<p align="center">
+  <img src="docs/images/logo.png" alt="TENKA" width="140" />
+</p>
 
-The web dashboard for **TENKA**, a local-first desktop AI assistant that runs on
-your own machine.
+<h1 align="center">TENKA Studio</h1>
+
+<p align="center">
+  The web dashboard for <strong>TENKA</strong>, a local-first desktop AI assistant
+  that runs on your own machine.
+</p>
+
+<p align="center">
+  <a href="https://tenka-studio.vercel.app"><strong>Live demo</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/Om-Khode/TENKA">The assistant</a>
+  &nbsp;·&nbsp;
+  <a href="#getting-started">Getting started</a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-15-000?logo=nextdotjs&logoColor=white" alt="Next.js 15" />
+  <img src="https://img.shields.io/badge/React-19-087ea4?logo=react&logoColor=white" alt="React 19" />
+  <img src="https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/tests-1258-3fb950" alt="1258 tests" />
+  <img src="https://img.shields.io/badge/license-Apache--2.0-blue" alt="Apache 2.0" />
+</p>
+
+<p align="center">
+  <img src="docs/images/dashboard.png" alt="The TENKA Studio dashboard: a running task broken into steps, system meters, the active model and its fallbacks, and personality trait sliders" />
+</p>
 
 Studio is a frontend and an API client — nothing more. It contains no AI logic,
 no automation, and makes no model calls of its own. Every intelligent behaviour
 it displays belongs to the Python assistant it talks to over loopback.
-
-**[Live demo → tenka-studio.vercel.app](https://tenka-studio.vercel.app)**
 
 ---
 
@@ -25,6 +49,24 @@ deployed demo is not a mockup of the product, it is the product on invented data
 Both trees carry the same six pages: dashboard, chat, commands, files, memory,
 and settings. `/connect` is the door into the live tree; `/pair` redeems a
 pairing code from a phone.
+
+Chat renders markdown and highlights code, so an answer about her own routing
+arrives as something readable rather than a wall of text:
+
+![The chat page answering a question about model routing, with a bulleted list and a syntax-highlighted Python function](docs/images/chat.png)
+
+Memory is the page that shows what a local-first assistant actually buys you.
+Facts carry validity, so a superseded value is struck through and dated rather
+than overwritten, and every entity keeps its own relation graph:
+
+![The memory page showing an entity's facts with superseded values struck through and dated, beside a graph of its relations](docs/images/memory.png)
+
+The same layout collapses to a phone — a bottom nav replaces the sidebar, and
+the running task keeps its per-step stack badges:
+
+<p align="center">
+  <img src="docs/images/mobile.png" alt="The dashboard on a 390px-wide phone viewport, with a bottom navigation bar" width="330" />
+</p>
 
 ## The public build serves the demo only
 
@@ -54,7 +96,7 @@ Radix primitives · Framer Motion · shiki · Vitest + Testing Library + MSW
 Fonts are self-hosted through `@fontsource` so the demo build makes no
 third-party requests.
 
-## Getting started
+<h2 id="getting-started">Getting started</h2>
 
 ```bash
 npm install

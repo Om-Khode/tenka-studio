@@ -1,0 +1,17 @@
+# TENKA Studio -- https://github.com/Om-Khode/tenka-studio
+#
+# The live tree is disallowed rather than merely absent. On the public build
+# /app/* and /connect answer a real 404, so a crawler that finds them logs
+# errors for pages working exactly as intended, and /pair is the pairing entry
+# point, which has no business in an index even where it does resolve.
+#
+# This is not a security control. The 404 and the daemon's own listener policy
+# are; this is just an honest description of what is meant to be public.
+
+User-agent: *
+Allow: /
+Disallow: /app/
+Disallow: /connect
+Disallow: /pair
+
+Sitemap: https://tenka-studio.vercel.app/sitemap.xml

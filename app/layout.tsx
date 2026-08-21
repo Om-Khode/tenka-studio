@@ -13,6 +13,24 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "TENKA Studio",
   description: "A local-first AI assistant's control dashboard.",
+  // Absolute base for the OG/Twitter image URLs below. Only crawlers ever read
+  // them, so the deployed origin is the right answer even in the bundle the
+  // daemon serves from loopback -- nothing there is ever unfurled.
+  metadataBase: new URL("https://tenka-studio.vercel.app"),
+  manifest: "/site.webmanifest",
+  openGraph: {
+    type: "website",
+    siteName: "TENKA Studio",
+    title: "TENKA Studio",
+    description: "A local-first AI assistant's control dashboard.",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "The TENKA Studio dashboard" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TENKA Studio",
+    description: "A local-first AI assistant's control dashboard.",
+    images: ["/og.png"],
+  },
 };
 
 /**
