@@ -1,17 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Only the routes meant to be indexed: the landing page and the demo tree.
-  /app/*, /connect and /pair are deliberately absent. They do resolve on a
-  static export, at HTTP 200, but they serve the 404 page with a noindex meta
-  tag, so listing them here would be advertising pages this build has
-  deliberately walled off.
-
-  Static rather than generated: Next compiles app/sitemap.ts into a route
-  handler, and this project's public build forbids those (docs/deploy.md).
-  tests/sitemap.test.ts pins this list against the demo pages that exist on
-  disk, so adding a page without adding it here is a failing test rather than
-  silent drift.
--->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://tenka-studio.vercel.app/</loc><priority>1.0</priority></url>
   <url><loc>https://tenka-studio.vercel.app/demo</loc><priority>0.8</priority></url>

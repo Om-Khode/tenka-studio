@@ -26,8 +26,10 @@
 </p>
 
 <p align="center">
-  <img src="docs/images/dashboard.png" alt="The TENKA Studio dashboard: a running task broken into steps, system meters, the active model and its fallbacks, and personality trait sliders" />
+  <img src="docs/images/tour.gif" alt="A tour of the six demo pages: dashboard, chat, commands, files, memory and settings" />
 </p>
+
+<p align="center"><sub>All six pages, on the deployed demo. No backend running.</sub></p>
 
 Studio is a frontend and an API client — nothing more. It contains no AI logic,
 no automation, and makes no model calls of its own. Every intelligent behaviour
