@@ -1,0 +1,5 @@
+# Generated artefacts are compared byte-for-byte by `npm run api:check`.
+# Git's autocrlf would rewrite them on checkout while the generator emits LF,
+# so the check would report drift that does not exist. Pin them to LF.
+openapi.json    text eol=lf
+types/api.d.ts  text eol=lf
