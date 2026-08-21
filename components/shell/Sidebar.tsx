@@ -35,10 +35,37 @@ export function Sidebar({
     <aside className="hidden h-full w-60 flex-col justify-between border-r border-border bg-bg p-4 lg:flex">
       <div>
         <div className="mb-4 flex items-center gap-2 border-b border-border px-2 pb-4">
-          <span className="h-2 w-2 rounded-full bg-amber" />
-          <span className="font-display text-sm font-bold text-bone">TENKA</span>
-          <span className="font-mono text-[10px] uppercase tracking-widest text-bone-ghost">
-            studio
+          {/*
+            A plain <img>, not next/image: the public demo build forbids it
+            (docs/deploy.md), and there is nothing for a loader to optimise in a
+            single small PNG anyway. The file is 224px for a 28px slot -- 8x, so
+            it is still sampling down rather than up at dpr 3, where a 2x asset
+            went visibly soft. Unlike the 16/32px favicon frames it carries no
+            contrast lift: that was tuned for sizes where the outer ring turns to
+            mush, and at this size it only blew the highlights into a halo.
+          */}
+          {/* eslint-disable-next-line @next/next/no-img-element -- next/image is
+              forbidden in this build; see the comment above. */}
+          <img
+            src="/brand-mark.png"
+            alt=""
+            aria-hidden="true"
+            width={28}
+            height={28}
+            className="h-7 w-7 shrink-0"
+          />
+          {/*
+            The two words share a baseline rather than a centre. `items-center`
+            on the row centres each child by its own line box, and at 14px next
+            to 10px that leaves "studio" floating off the wordmark's baseline --
+            visible as soon as anyone looks closely. The logo still wants
+            centring, so the type is its own baseline-aligned group.
+          */}
+          <span className="flex items-baseline gap-2">
+            <span className="font-display text-sm font-bold leading-none text-bone">TENKA</span>
+            <span className="font-mono text-[10px] uppercase leading-none tracking-widest text-bone-ghost">
+              studio
+            </span>
           </span>
         </div>
         <nav className="flex flex-col gap-1">
