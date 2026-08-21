@@ -21,7 +21,7 @@
   <img src="https://img.shields.io/badge/Next.js-15-000?logo=nextdotjs&logoColor=white" alt="Next.js 15" />
   <img src="https://img.shields.io/badge/React-19-087ea4?logo=react&logoColor=white" alt="React 19" />
   <img src="https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/tests-1258-3fb950" alt="1258 tests" />
+  <img src="https://img.shields.io/badge/tests-1263-3fb950" alt="1263 tests" />
   <img src="https://img.shields.io/badge/license-Apache--2.0-blue" alt="Apache 2.0" />
 </p>
 
